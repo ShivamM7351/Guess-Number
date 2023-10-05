@@ -39,29 +39,17 @@ btnCheck.addEventListener("click" , function(){
 
     // When guess value is greater than secretNumber
 
-    }else if(guessValue > secretNumber){
+    }else if(guessValue !== secretNumber){
         if(score > 1){
-        message.textContent = "🤷 Too High!";
-        score--;
-        currentScore.textContent = `${score}`;
-        }else{
-             message.textContent = "You lost the game.";
-             currentScore.textContent = 0;
+            message.textContent = guessValue > secretNumber?"🤷 Too High!":"🤷 Too Low!";
+            score--;
+            currentScore.textContent = `${score}`;
+            }else{
+                 message.textContent = "You lost the game.";
+                 currentScore.textContent = 0;
+            }
         }
 
-    
-    // when guess value is less than secretNumber
-
-    }else if(guessValue < secretNumber){
-        if(score > 1){
-        message.textContent = "🤷 Too Low!";
-        score--;
-        currentScore.textContent = `${score}`;
-        }else{
-            message.textContent = "You lost the game.";
-            currentScore.textContent = 0;
-        }
-    }
 })
 
 againCheck.addEventListener("click", function(){
